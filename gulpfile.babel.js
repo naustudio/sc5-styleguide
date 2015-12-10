@@ -112,7 +112,7 @@ gulp.task('dev', ['dev:doc', 'dev:static', 'dev:applystyles' ], () => {
   runSequence('build:dist', 'dev:generate');
 
   gulp.watch('lib/app/sass/**/*.scss', () => {
-    runSequence('copy:sass', 'dev:applystyles', 'dev:generate');
+    runSequence('copy:sass', 'dev:generate', 'dev:applystyles');
   });
   gulp.watch(['lib/app/js/**/*.js', 'lib/app/views/**/*', 'lib/app/index.html', '!lib/app/js/vendor/**/*.js'], () => {
     gulp.start('lint:js');
